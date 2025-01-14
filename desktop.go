@@ -416,6 +416,8 @@ const (
 	ButtonTriangle    = GamepadButton(glfw.ButtonTriangle)
 )
 
+type GamepadState glfw.GamepadState
+
 type Action glfw.Action
 
 const (
@@ -468,6 +470,10 @@ func (joy Joystick) GetButtons() []Action {
 		dst[i] = Action(v)
 	}
 	return dst
+}
+
+func (joy Joystick) GetGamepadState() *GamepadState {
+	return glfw.Joystick(joy).GetGamepadState()
 }
 
 // Open opens a named asset. It's the caller's responsibility to close it when done.
