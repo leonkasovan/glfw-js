@@ -357,8 +357,6 @@ const (
 	MouseButtonMiddle = MouseButton(glfw.MouseButtonMiddle)
 )
 
-type Joystick glfw.Joystick
-
 const (
 	Joystick1    = Joystick(glfw.Joystick1)
 	Joystick2    = Joystick(glfw.Joystick2)
@@ -472,7 +470,7 @@ func (joy Joystick) GetButtons() []Action {
 	return dst
 }
 
-func (joy Joystick) GetGamepadState() *GamepadState {
+func (joy Joystick) GetGamepadState() *glfw.GamepadState {
 	return glfw.Joystick(joy).GetGamepadState()
 }
 
